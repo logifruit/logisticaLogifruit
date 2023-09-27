@@ -1,0 +1,27 @@
+
+<h2 mat-dialog-title>{{title}}</h2>
+<mat-dialog-content>
+  <mat-form-field>
+    <!-- <input matInput [(ngModel)]="searchQuery" placeholder="Buscar"> -->
+    <input matInput [(ngModel)]="searchQuery" placeholder="Buscar" (input)="filtrarResultados()">
+  </mat-form-field>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="menu" *ngFor="let encabezado of obtenerEncabezados()">{{ encabezado }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let resultado of filteredResultados; let i = index" 
+          (click)="seleccionarLinea(i, resultado)"
+          (dblclick)="aceptarLinea(resultado)"
+          class="seleccionar">
+        <td *ngFor="let detalle of obtenerDetalles(resultado)" [ngClass]="{ 'linea': i === lineaSeleccionada }">{{ detalle }}</td>
+      </tr>
+    </tbody>
+  </table>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]>Cancelar</button>
+  <button mat-button (click)="aceptarLinea(clienteSeleccionado)" cdkFocusInitial>Aceptar</button>
+</mat-dialog-actions>

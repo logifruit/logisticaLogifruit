@@ -1,0 +1,16 @@
+<div class="sidebar" [ngClass]="{'open': isOpen}" [ngStyle]="{'width.px': sidebarWidth}">
+    <button class="toggle-button" (click)="toggleSidebar()">
+      <i class="fas" [ngClass]="{'fa-chevron-left': !isOpen, 'fa-chevron-right': isOpen}"></i>
+    </button>
+    <ul class="sidebar-menu">
+      <li *ngFor="let option of menuOptions" (click)="navigateTo(option.url)">
+        <a [title]="!isOpen ? option.description : ''">
+          <i class="fas" [ngClass]="option.icon"></i>
+          <i class="bi bi-pencil-square"></i>
+          <span *ngIf="!isOpen">{{ option.name }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+

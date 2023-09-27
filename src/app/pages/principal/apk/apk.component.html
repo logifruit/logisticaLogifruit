@@ -1,0 +1,7 @@
+<app-header></app-header>
+<div class="content">
+  <app-sidebar (sidebarWidthChanged)="updateMainContentMargin($event)"></app-sidebar>
+  <div class="main" [ngStyle]="{'margin-left.px': sidebarWidth}">
+    <app-main></app-main>
+  </div>
+</div>

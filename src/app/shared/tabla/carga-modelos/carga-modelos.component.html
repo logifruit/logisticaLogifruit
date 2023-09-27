@@ -1,0 +1,45 @@
+<div class="container">
+    <h1>Carga de Modelos</h1>
+    
+    <button class="btn btn-primary" (click)="openDialog()">Nuevo</button>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Articulo</th>
+          <th>Descripcion</th>          
+          <th>Unidades</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of articulosDispo">
+          <ng-template [ngIf] = "item.cantidad > 0">
+            <td>{{ item.id }}</td>
+            <td>{{ item.descripcionCompleta }}</td>
+            <td>{{ item.cantidad }}</td>
+            <td>            
+              <button class="btn"><i class="fa fa-edit" (click)="openDialog(item)"></i></button>
+              <button class="btn"><i class="fa fa-trash" (click)="item.cantidad=0"></i></button>
+            </td>
+           </ng-template>          
+        </tr>
+        <tr *ngIf="totalUnidades > 0">
+          <td colspan="2"><strong>Total de Unidades:</strong></td>
+          <td>{{ totalUnidades }}</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  
+  <!-- Formulario emergente -->
+  <!-- <app-form-carga-modelos
+    [mostrarModal]="mostrarModal"
+    (datosAceptados)="agregarItem($event)"></app-form-carga-modelos> -->
+
+
+
+    
+

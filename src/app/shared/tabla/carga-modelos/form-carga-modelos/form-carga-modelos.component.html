@@ -1,0 +1,47 @@
+<!-- <button type="button" class="btn btn-secondary" (click)="ver()">Cancelar</button>
+
+<pre>{{ data.productosDisponibles | json }}</pre>
+
+
+<form [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
+  <div class="form-group">
+    <label for="articulo">Artículos:</label>
+    <select class="form-select" [(ngModel)]="productoSeleccionado" formControlName="articulo" (change)="ver()">
+      <option *ngFor="let producto of data.productosDisponibles" 
+              [value]="producto | json">
+        {{ producto.articulo }}
+      </option>
+    </select>
+  </div>
+
+   
+
+  <div class="form-group">
+    <label for="unidades">Unidades:</label>
+    <input type="text" class="form-control" id="unidades" formControlName="unidades" [ngModel]="unidades">
+    <div *ngIf="formulario.get('unidades')?.hasError('required')" class="text-danger">Debes ingresar las unidades</div>
+  </div>
+
+  <button type="button" class="btn btn-secondary" (click)="onNoClick()">Cancelar</button>
+  <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid" >Aceptar</button>
+</form> -->
+
+<!-- <h1>{{data.productosDisponibles | json }}</h1>
+tata
+<h2>{{articuloSeleccionado}}</h2> -->
+
+<div class="container">
+  <h2>Formulario de Artículos</h2>
+    <div class="form-group">
+      <label for="articulo">Artículo:</label>
+      <select [(ngModel)]="articuloSeleccionado" [disabled]="editMode">
+        <option *ngFor="let item of filtrarProductosDisponibles()"  [value]="item.id" [selected]="item.id === articuloSeleccionado">{{ item.descripcionCompleta }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="unidades">Unidades:</label>
+      <input type="number" class="form-control" [(ngModel)]="unidadesSeleccionadas" name="unidades">
+    </div>
+    <button type="submit" class="btn btn-primary" 
+    [disabled]="!sonCamposValidos()" (click)="guardarCambios()">Guardar Cambios</button>
+</div>

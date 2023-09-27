@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  height: calc(100vh - 50px);
+}
+
+.main {
+  flex: 1;
+  overflow: auto;
+  padding: 10px;
+  transition: margin-left 0.3s ease; /* Agregamos una transición suave para la animación de cambio de margen */
+  margin-top: 50px;
+}

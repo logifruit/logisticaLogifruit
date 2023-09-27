@@ -1,0 +1,29 @@
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px; /* Ajusta la altura del encabezado según tus necesidades */
+    background-color: var(--logifruit);
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+  }
+  
+  .logo {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .logout {
+    right: 2px;
+    position: absolute;
+    top: 1px;
+  }
+  
+  
+      
